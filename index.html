@@ -206,9 +206,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .bgf-dev button.on{background:#fff;color:var(--ink)}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
 .reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d1{transition-delay:.09s}.reveal.d2{transition-delay:.18s}.reveal.d3{transition-delay:.27s}
+.reveal.d4{transition-delay:.36s}.reveal.d5{transition-delay:.45s}
+/* luxury cascade — photos & cards unveil one after another */
+.ed .gfig,.deckset .deck-card,.inv-track .v-card{opacity:0;transform:translateY(30px);transition:opacity 1.05s var(--ease-out),transform 1.05s var(--ease-out);will-change:opacity,transform}
+.ed .gfig.lx-in,.deckset .deck-card.lx-in,.inv-track .v-card.lx-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal,.ed .gfig,.deckset .deck-card,.inv-track .v-card{transition:none!important}}
 
 /* GALLERY — vertical stacked categories (Exterior / Interior / Deck) */
 .gallery{padding:8px 0 40px}
@@ -291,6 +296,31 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .tour3d h2{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:24px;line-height:34px;color:#fff}
 .tour3d .t-take{margin-top:6px;gap:10px}
 .tour3d .t-take svg{width:18px;height:18px}
+/* ABOUT (section under the model) */
+.about{padding:100px 0 0;background:#fff}
+.about-inner{max-width:900px;margin:0 auto;padding:0 40px;text-align:center}
+.about-eyebrow{display:block;font-family:'Mesmerize',sans-serif;font-weight:300;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--c4);margin-bottom:22px}
+.about-title{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:28px;line-height:38px;color:var(--ink);margin:0}
+.about-lead{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:18px;line-height:30px;color:var(--c2);max-width:640px;margin:22px auto 0}
+.about-media{max-width:var(--maxw);margin:56px auto 0;padding:0 40px}
+.about-band img{width:100%;height:420px;object-fit:cover;display:block}
+.about-meta{background:#fff;border-top:1px solid var(--line);padding:40px 32px;display:flex;flex-wrap:wrap;justify-content:center;gap:28px 64px;text-align:center}
+.about-meta .am-col{display:flex;flex-direction:column;gap:6px;align-items:center}
+.about-meta .am-k{font-family:'Myriad Pro',sans-serif;font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--c4)}
+.about-meta .am-v{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:16px;line-height:24px;color:var(--ink)}
+@media(max-width:760px){.about{padding:72px 0 0}.about-inner{padding:0 22px}.about-media{padding:0 22px}.about-band img{height:260px}.about-meta{gap:22px 36px;padding:32px 22px}}
+/* SECTION NAV (sticky in-page menu) */
+.secnav{position:fixed;left:0;right:0;top:var(--nav-h,88px);z-index:900;background:rgba(252,252,253,.86);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:.5px solid var(--border);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .35s ease,transform .35s ease,visibility .35s;pointer-events:none}
+.secnav.show{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.secnav-inner{max-width:var(--maxw);margin:0 auto;padding:0 40px;display:flex;justify-content:center;gap:34px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.secnav-inner::-webkit-scrollbar{display:none}
+.secnav a{position:relative;flex:0 0 auto;padding:16px 0;font-family:'Mesmerize',sans-serif;font-weight:300;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--c4);white-space:nowrap;text-decoration:none;transition:color .25s}
+.secnav a::after{content:"";position:absolute;left:0;right:0;bottom:-.5px;height:2px;background:var(--navy);transform:scaleX(0);transition:transform .3s ease}
+.secnav a:hover{color:var(--ink)}
+.secnav a.active{color:var(--ink)}
+.secnav a.active::after{transform:scaleX(1)}
+@media(max-width:1100px){.secnav-inner{justify-content:flex-start;gap:26px}}
+@media(max-width:760px){.secnav-inner{padding:0 22px;gap:22px}.secnav a{font-size:13px;padding:14px 0}}
 
 /* SPECS — editorial key/value list + accordions */
 .specs{background:var(--white);padding:8px 0 72px}
@@ -337,8 +367,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .brand-left{display:flex;flex-direction:column;gap:40px}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 12px}
-.info-cell{display:flex;flex-direction:column;gap:12px}
-.info-cell .k{color:var(--c0)}.info-cell .v{color:var(--c0)}
+.info-cell{display:flex;flex-direction:column;gap:8px}
+.info-cell .k{font-family:'Myriad Pro',sans-serif;font-weight:400;font-size:13px;line-height:1;letter-spacing:.08em;text-transform:uppercase;color:var(--c4)}
+.info-cell .v{color:var(--c0)}
 .info-cell .v .sub{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:16px;line-height:24px}
 .brand-photo{border-radius:2px;overflow:hidden;height:367px}
 .brand-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
@@ -491,130 +522,44 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
       <div class="vline"></div>
       <div class="spec-cell"><span class="lbl">Range</span><span class="val">430 NM</span></div>
       <div class="vline"></div>
-      <div class="spec-cell"><span class="lbl">Length overall</span><span class="val">112.9 ft</span></div>
+      <div class="spec-cell"><span class="lbl">Beam</span><span class="val">23.9 ft</span></div>
       <div class="vline"></div>
       <div class="spec-cell"><span class="lbl">Capacity</span><span class="val">20 people</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     BUILT TO GO FURTHER — 5 variants (only one visible at a time)
-     ============================================================ -->
-<div id="bgf">
+<!-- SECTION NAV (sticky in-page menu) -->
+<nav class="secnav" id="secnav" aria-label="Section navigation">
+  <div class="secnav-inner">
+    <a href="#about" data-spy>Overview</a>
+    <a href="#tour" data-spy>3D Tour</a>
+    <a href="#exterior" data-spy>Exterior</a>
+    <a href="#interior" data-spy>Interior</a>
+    <a href="#deck" data-spy>Deck Layout</a>
+    <a href="#specs" data-spy>Specifications</a>
+    <a href="#inventory" data-spy>Inventory</a>
+    <a href="#brand" data-spy>Office</a>
+  </div>
+</nav>
 
-  <!-- Variant 1 · Editorial split -->
-  <section class="bgf bgf-v1 is-active" data-variant="1">
-    <div class="wrap">
-      <div class="v1-text">
-        <h2 class="bgf-rv s1">Built to Go Further</h2>
-        <p class="t-md bgf-rv s2">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita &mdash; expanded volumes, sculpted Italian lines and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht, with open-air living across every deck.</p>
-        <p class="v1-promo bgf-rv s2">As the Riva dealer for San Diego, Jeff Brown Yachts guides you from specification and sea trial to delivery &mdash; tailoring every detail of your Dolcevita Super. Speak with our specialists to configure the yacht that&rsquo;s right for you.</p>
-        <div class="bgf-actions bgf-rv s3">
-          <a href="#brand" class="btn btn-sm btn-solid">Contact us</a>
-          <a href="#inventory" class="btn btn-sm btn-ghost">View inventory</a>
-        </div>
-      </div>
-      <div class="v1-media bgf-clip">
-        <img src="assets/riva-profile.jpg" alt="Riva 112 Dolcevita Super" loading="lazy"/>
-      </div>
+<!-- ABOUT (section under the model) -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <h2 class="about-title reveal">Built to go further</h2>
+    <p class="about-lead reveal d1">The next evolution of the 110&rsquo; Dolcevita &mdash; expanded volumes, sculpted Italian lines and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht, with open-air living across every deck.</p>
+  </div>
+  <div class="about-media reveal d2">
+    <div class="about-band"><img src="assets/riva-aerial.jpg" alt="Riva 112 Dolcevita Super from above" loading="lazy"/></div>
+    <div class="about-meta">
+      <div class="am-col"><span class="am-k">Displacement</span><span class="am-v">130 t</span></div>
+      <div class="am-col"><span class="am-k">Fuel capacity</span><span class="am-v">15,300 L</span></div>
+      <div class="am-col"><span class="am-k">Crew</span><span class="am-v">5</span></div>
+      <div class="am-col"><span class="am-k">Gross tonnage</span><span class="am-v">220 GT</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Variant 2 · Cinematic image-led -->
-  <section class="bgf bgf-v2" data-variant="2">
-    <div class="v2-bg"><img src="assets/riva-aerial.jpg" alt="Riva 112 Dolcevita Super cruising" loading="lazy" data-parallax="0.05"/></div>
-    <div class="wrap">
-      <div class="v2-inner">
-        <span class="bgf-eyebrow bgf-rv">Riva 112&rsquo; Dolcevita Super</span>
-        <h2 class="bgf-rv s1">Built to Go Further</h2>
-        <p class="bgf-rv s2">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita and one of the most refined flybridge yachts in her class. Expanded volumes, sculpted Italian lines, and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht. On board, generous outdoor spaces, panoramic interiors, and a five-cabin layout create a yacht built around open-air living and a closer connection to the water. From the sun deck to the redesigned aft areas, every space is shaped for effortless entertaining, extended cruising, and the unmistakable elegance of Riva.</p>
-        <div class="bgf-actions bgf-rv s3">
-          <a href="#brand" class="btn btn-md btn-solid">Contact us</a>
-          <a href="#inventory" class="btn btn-md btn-ghost-light">View inventory</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Variant 3 · Typography-led manifesto -->
-  <section class="bgf bgf-v3" data-variant="3">
-    <div class="wrap">
-      <span class="bgf-eyebrow bgf-rv">Riva 112&rsquo; Dolcevita Super</span>
-      <h2 class="bgf-rv s1">Built to Go Further</h2>
-      <p class="v3-lead bgf-rv s2">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita and one of the most refined flybridge yachts in her class.</p>
-      <p class="v3-body bgf-rv s2">Expanded volumes, sculpted Italian lines, and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht. On board, generous outdoor spaces, panoramic interiors, and a five-cabin layout create a yacht built around open-air living and a closer connection to the water. From the sun deck to the redesigned aft areas, every space is shaped for effortless entertaining, extended cruising, and the unmistakable elegance of Riva.</p>
-      <div class="v3-hl bgf-rv s3">
-        <div><span class="k">Length overall</span><span class="v">112.9 ft</span></div>
-        <div><span class="k">Top speed</span><span class="v">25.5 kn</span></div>
-        <div><span class="k">Accommodation</span><span class="v">5 cabins</span></div>
-        <div><span class="k">Engines</span><span class="v">Twin MTU 16V</span></div>
-      </div>
-      <div class="bgf-actions bgf-rv s4">
-        <a href="#brand" class="btn btn-sm btn-solid">Contact us</a>
-        <a href="#inventory" class="btn btn-sm btn-ghost">View inventory</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Variant 4 · Layered luxury composition -->
-  <section class="bgf bgf-v4" data-variant="4">
-    <div class="wrap">
-      <div class="v4-stage">
-        <div class="v4-primary bgf-clip">
-          <img src="assets/exterior/ext-2.png" alt="Riva 112 Dolcevita Super al fresco dining" loading="lazy" data-parallax="0.05"/>
-        </div>
-        <div class="v4-detail v4-d2 bgf-rv s2"><img src="assets/interior/int-1.png" alt="Main deck salon detail" loading="lazy"/></div>
-        <div class="v4-detail v4-d1 bgf-rv s3"><img src="assets/interior/int-3.png" alt="Owner&rsquo;s suite detail" loading="lazy"/></div>
-        <div class="v4-card bgf-rv s1">
-          <span class="bgf-eyebrow">Riva 112&rsquo; Dolcevita Super</span>
-          <h2>Built to Go Further</h2>
-          <p class="t-md">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita and one of the most refined flybridge yachts in her class. Expanded volumes, sculpted Italian lines, and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht. On board, generous outdoor spaces, panoramic interiors, and a five-cabin layout create a yacht built around open-air living and a closer connection to the water. From the sun deck to the redesigned aft areas, every space is shaped for effortless entertaining, extended cruising, and the unmistakable elegance of Riva.</p>
-          <div class="bgf-actions">
-            <a href="#brand" class="btn btn-sm btn-solid">Contact us</a>
-            <a href="#inventory" class="btn btn-sm btn-ghost">View inventory</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Variant 5 · Scroll-driven storytelling -->
-  <section class="bgf bgf-v5" data-variant="5">
-    <div class="wrap">
-      <div class="v5-grid">
-        <div class="v5-visual">
-          <img src="assets/riva-bow.jpg" alt="Riva 112 Dolcevita Super bow" loading="lazy" data-parallax="0.06"/>
-          <span class="v5-tag">Dolcevita Super</span>
-        </div>
-        <div class="v5-copy">
-          <div class="v5-frag">
-            <span class="bgf-eyebrow bgf-v5-rv">Riva 112&rsquo; Dolcevita Super</span>
-            <h2 class="bgf-v5-rv">Built to Go Further</h2>
-            <p class="bgf-v5-rv">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita and one of the most refined flybridge yachts in her class.</p>
-          </div>
-          <div class="v5-frag">
-            <span class="num bgf-v5-rv">01</span>
-            <p class="bgf-v5-rv">Expanded volumes, sculpted Italian lines, and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht.</p>
-          </div>
-          <div class="v5-frag">
-            <span class="num bgf-v5-rv">02</span>
-            <p class="bgf-v5-rv">On board, generous outdoor spaces, panoramic interiors, and a five-cabin layout create a yacht built around open-air living and a closer connection to the water.</p>
-          </div>
-          <div class="v5-frag">
-            <span class="num bgf-v5-rv">03</span>
-            <p class="bgf-v5-rv">From the sun deck to the redesigned aft areas, every space is shaped for effortless entertaining, extended cruising, and the unmistakable elegance of Riva.</p>
-            <div class="bgf-actions bgf-v5-rv">
-              <a href="#brand" class="btn btn-sm btn-solid">Contact us</a>
-              <a href="#inventory" class="btn btn-sm btn-ghost">View inventory</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
 
 <!-- 3D TOUR (placed right after the model intro) -->
 <section class="tour3d" id="tour" aria-label="3D virtual tour">
@@ -630,26 +575,26 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 <section class="gallery" id="gallery">
 
   <!-- Exterior — editorial asymmetric mosaic -->
-  <div class="vgal-sec" data-gallery="exterior">
+  <div class="vgal-sec" id="exterior" data-gallery="exterior">
     <div class="wrap">
       <div class="vgal-head reveal"><div class="vgal-titles"><h2>Exterior</h2></div></div>
-      <div class="ed reveal d1" aria-label="Exterior photos"></div>
+      <div class="ed" aria-label="Exterior photos"></div>
     </div>
   </div>
 
   <!-- Interior — same editorial mosaic -->
-  <div class="vgal-sec" data-gallery="interior">
+  <div class="vgal-sec" id="interior" data-gallery="interior">
     <div class="wrap">
       <div class="vgal-head reveal"><div class="vgal-titles"><h2>Interior</h2></div></div>
-      <div class="ed reveal d1" aria-label="Interior photos"></div>
+      <div class="ed" aria-label="Interior photos"></div>
     </div>
   </div>
 
   <!-- Deck Layout — trio of plans -->
-  <div class="vgal-sec" data-gallery="deck">
+  <div class="vgal-sec" id="deck" data-gallery="deck">
     <div class="wrap">
       <div class="vgal-head reveal"><div class="vgal-titles"><h2>Deck Layout</h2></div></div>
-      <div class="deckset reveal d1" aria-label="Deck plans"></div>
+      <div class="deckset" aria-label="Deck plans"></div>
     </div>
   </div>
 
@@ -658,10 +603,6 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 <!-- SPECS -->
 <section class="specs" id="specs">
   <div class="wrap">
-    <div class="specs-head reveal">
-      <h2 class="specs-title h-xs">Technical Specifications</h2>
-    </div>
-
     <!-- All three as accordions (chevron); General open by default -->
     <div class="reveal d1">
       <div class="acc">
@@ -695,26 +636,6 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="brand" id="brand">
-  <div class="wrap">
-    <h2 class="brand-title h-xs reveal">Brand represent at San Diego</h2>
-    <p class="brand-services reveal">Based on Shelter Island in San Diego, Jeff Brown Yachts is the official Riva dealer for the region &mdash; offering yacht sales and brokerage, full in-house management, berthing, and service, all at the water&rsquo;s edge.</p>
-    <div class="brand-grid">
-      <div class="brand-left">
-        <div class="info-grid reveal d1">
-          <div class="info-cell"><span class="k h-2xs">Location</span><span class="v t-xl">2330 Shelter Island Drive, Suite 105<br/>San Diego, CA 92106</span></div>
-          <div class="info-cell"><span class="k h-2xs">Working hours</span><span class="v t-xl">Monday - Friday: 8am - 5pm<br/><span class="sub">Weekends and private viewings by appointment.</span></span></div>
-          <div class="info-cell"><span class="k h-2xs">Email</span><span class="v t-xl">info@jeffbrownyachts.com</span></div>
-          <div class="info-cell"><span class="k h-2xs">Phone</span><span class="v t-xl">+1 619-222-9899</span></div>
-        </div>
-        <div class="brand-photo reveal d2"><img src="assets/contact.jpg" alt="Jeff Brown Yachts, San Diego" loading="lazy"/></div>
-      </div>
-      <div id="map" class="reveal d1" aria-label="Map of Jeff Brown Yachts, San Diego"></div>
-    </div>
-  </div>
-</section>
-
 <!-- AVAILABLE INVENTORY -->
 <section class="inventory" id="inventory">
   <div class="wrap">
@@ -722,7 +643,7 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
       <h2 class="h-xs">Available Inventory</h2>
     </div>
   </div>
-  <div class="inv-body reveal d1">
+  <div class="inv-body">
     <div class="inv-track-wrap" id="invWrap">
       <div class="inv-track" id="invTrack"></div>
     </div>
@@ -731,33 +652,41 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   </div>
 </section>
 
-<!-- PROMO -->
-<section class="promo">
-  <div class="promo-bg" id="promoBg"><img src="assets/promo.jpg" alt="Jeff Brown Yachts fleet at Shelter Island marina, San Diego" loading="lazy"/></div>
-  <div class="promo-inner">
-    <div class="promo-text">
-      <h2 class="h-md reveal">Expert guidance. Effortless ownership.</h2>
-      <p class="reveal d1">From yacht search and private viewings to paperwork, delivery, and service,<br/>Jeff Brown Yachts keeps the buying process clear, coordinated, and personal.</p>
+<!-- CONTACT (last section before footer) -->
+<section class="brand" id="brand">
+  <div class="wrap">
+    <h2 class="brand-title h-xs reveal">Visit us in San Diego</h2>
+    <p class="brand-services reveal">Based on Shelter Island in San Diego, Jeff Brown Yachts is the official Riva dealer for the region &mdash; offering yacht sales and brokerage, full in-house management, berthing, and service, all at the water&rsquo;s edge.</p>
+    <div class="brand-grid">
+      <div class="brand-left">
+        <div class="info-grid reveal d1">
+          <div class="info-cell"><span class="k">Location</span><span class="v t-xl">2330 Shelter Island Drive, Suite 105<br/>San Diego, CA 92106</span></div>
+          <div class="info-cell"><span class="k">Working hours</span><span class="v t-xl">Monday - Friday: 8am - 5pm<br/><span class="sub">Weekends and private viewings by appointment.</span></span></div>
+          <div class="info-cell"><span class="k">Email</span><span class="v t-xl">info@jeffbrownyachts.com</span></div>
+          <div class="info-cell"><span class="k">Phone</span><span class="v t-xl">+1 619-222-9899</span></div>
+        </div>
+        <div class="brand-photo reveal d2"><img src="assets/contact.jpg" alt="Jeff Brown Yachts, San Diego" loading="lazy"/></div>
+      </div>
+      <div id="map" class="reveal d1" aria-label="Map of Jeff Brown Yachts, San Diego"></div>
     </div>
-    <a href="#brand" class="btn btn-md btn-ghost-light reveal d2">Contact us</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-grid">
-    <div>
+    <div class="reveal">
       <div class="foot-logo"><img src="assets/jby_logo.svg" alt="Jeff Brown Yachts"/></div>
       <nav class="foot-nav">
         <a href="#">Home</a><span class="sep">/</span><a href="#">Portfolio</a><span class="sep">/</span><a href="#">Brands</a><span class="sep">/</span>
         <a href="#">Services</a><span class="sep">/</span><a href="#">Experiences</a><span class="sep">/</span><a href="#">About JBY</a>
       </nav>
     </div>
-    <div class="foot-col">
+    <div class="foot-col reveal d1">
       <h6>Contact us</h6><p>+1 619-222-9899</p>
-      <h6>Email</h6><p>jeff@jeffbrownyachts.com</p>
+      <h6>Email</h6><p>info@jeffbrownyachts.com</p>
     </div>
-    <div class="foot-col">
+    <div class="foot-col reveal d2">
       <h6>Address</h6><p>2330 Shelter Island Drive,<br/>Suite 105 San Diego, CA 92106</p>
       <h6>Social media</h6>
       <div class="foot-social">
@@ -804,13 +733,10 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)kick();});
 ['click','touchstart','scroll','keydown'].forEach(ev=>window.addEventListener(ev,kick,{once:true,passive:true}));kick();
 
 /* Parallax */
-const heroMedia=document.getElementById('heroMedia');const promoBg=document.getElementById('promoBg');const tourBg=document.getElementById('tourBg');
+const heroMedia=document.getElementById('heroMedia');const tourBg=document.getElementById('tourBg');
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
   if(y<900) heroMedia.style.transform='translateY('+(y*0.26)+'px) scale(1.06)';
-  const r=promoBg.getBoundingClientRect();
-  if(r.bottom>0&&r.top<window.innerHeight){const p=(window.innerHeight-r.top)/(window.innerHeight+r.height);
-    promoBg.querySelector('img').style.transform='translateY('+((p-0.5)*50)+'px) scale(1.1)';}
   if(tourBg){const tr=tourBg.getBoundingClientRect();
     if(tr.bottom>0&&tr.top<window.innerHeight){const tp=(window.innerHeight-tr.top)/(window.innerHeight+tr.height);
       tourBg.querySelector('img').style.transform='translateY('+((tp-0.5)*50)+'px) scale(1.1)';}}
@@ -830,6 +756,42 @@ window.addEventListener('scroll',()=>{
 /* Reveal */
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Section nav — sticky in-page menu + scroll spy */
+(function(){
+  const secnav=document.getElementById('secnav'); if(!secnav) return;
+  const nav=document.querySelector('.nav');
+  const links=[...secnav.querySelectorAll('a[data-spy]')];
+  const map=links.map(a=>({a,sec:document.querySelector(a.getAttribute('href'))})).filter(o=>o.sec);
+  const hero=document.querySelector('.hero');
+  /* keep the bar tucked exactly under the fixed header */
+  function syncNavH(){ const h=nav?Math.round(nav.getBoundingClientRect().height):88; document.documentElement.style.setProperty('--nav-h',h+'px'); return h; }
+  function offset(){ return syncNavH() + secnav.getBoundingClientRect().height + 8; }
+  function onScroll(){
+    const h=syncNavH();
+    /* reveal the bar only once the hero has scrolled up past the header */
+    const heroBottom=hero?hero.getBoundingClientRect().bottom:0;
+    secnav.classList.toggle('show', heroBottom <= h + 4);
+    const line=offset()+24; let current=map[0];
+    for(const o of map){ if(o.sec.getBoundingClientRect().top <= line) current=o; }
+    links.forEach(a=>a.classList.remove('active'));
+    if(current){ current.a.classList.add('active');
+      /* keep the active item in view on the horizontal bar (mobile) */
+      const inner=secnav.querySelector('.secnav-inner');
+      if(inner && inner.scrollWidth>inner.clientWidth){ const r=current.a.getBoundingClientRect(),ir=inner.getBoundingClientRect();
+        if(r.left<ir.left||r.right>ir.right) current.a.scrollIntoView({inline:'center',block:'nearest'}); }
+    }
+  }
+  links.forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const s=document.querySelector(a.getAttribute('href')); if(!s) return;
+    const y=s.getBoundingClientRect().top + window.scrollY - offset() - 12;
+    window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  }));
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',()=>{syncNavH();onScroll();},{passive:true});
+  syncNavH(); onScroll();
+})();
 
 /* ===== GALLERIES — three editorial layouts + shared lightbox ===== */
 function escAttr(s){return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
@@ -979,6 +941,35 @@ window.addEventListener('load',()=>{try{
   L.marker(jby,{icon}).addTo(map).bindPopup('<div class="map-pop"><b>Jeff Brown Yachts</b><br/>2330 Shelter Island Drive, Suite 105<br/>San Diego, CA 92106</div>');
   map.on('click',()=>map.scrollWheelZoom.enable());
 }catch(e){console.warn('map failed',e);}});
+
+/* Luxury cascade — photos & cards unveil one after another as they enter view */
+(function(){
+  var groups=['.ed','.deckset','.inv-track'];
+  var childSel='.gfig,.deck-card,.v-card';
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el=en.target, i=parseFloat(el.dataset.lxi)||0;
+      el.style.transitionDelay=(i*0.09)+'s';
+      el.classList.add('lx-in');
+      obs.unobserve(el);
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  function scan(){
+    groups.forEach(function(gsel){
+      document.querySelectorAll(gsel).forEach(function(parent){
+        var n=0;
+        Array.prototype.forEach.call(parent.children,function(k){
+          if(!k.matches||!k.matches(childSel)) return;
+          if(k.dataset.lxseen) return;
+          k.dataset.lxseen='1'; k.dataset.lxi=n++;
+          obs.observe(k);
+        });
+      });
+    });
+  }
+  scan(); setTimeout(scan,300); setTimeout(scan,900);
+})();
 </script>
 </body>
 </html>
