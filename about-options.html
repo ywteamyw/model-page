@@ -82,13 +82,48 @@
     .n4 .meta{flex-wrap:wrap;gap:24px 40px}
     .n6{height:auto}.n6 .ph{position:relative;height:280px}.n6 .panel{position:static;max-width:none;margin:-40px 16px 16px;background:rgba(18,24,30,.9)}
   }
+
+  /* ===== MAGAZINE / EDITORIAL (7-10) ===== */
+  .mg7{padding:60px 52px}
+  .mg7 .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .mg7 figure{margin:0}
+  .mg7 .ph{aspect-ratio:4/5;border-radius:2px}
+  .mg7 figcaption{font-family:'Myriad Pro',sans-serif;font-style:italic;font-size:13px;color:var(--c4);margin-top:10px}
+  .mg7 .eyebrow{display:block;margin-bottom:16px}
+  .mg7 .m-title{font-size:clamp(28px,3.4vw,42px);margin:0 0 22px}
+  .mg7 .body{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.75;color:var(--c2);margin:0}
+  .mg7 .body::first-letter{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:66px;line-height:.72;float:left;margin:8px 14px 0 0;color:var(--ink)}
+  .mg7 .rule{height:1px;background:var(--line);margin:26px 0}
+  .mg7 .credits{display:flex;gap:48px}
+  .mg7 .credits .k{font-family:'Myriad Pro',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--c4);display:block;margin-bottom:6px}
+  .mg7 .credits .v{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:15px;color:var(--ink)}
+  .mg8{padding:66px 60px;text-align:center}
+  .mg8 .eyebrow{display:block;margin-bottom:20px}
+  .mg8 .m-title{font-size:clamp(30px,4vw,50px);max-width:15ch;margin:0 auto 36px;line-height:1.08}
+  .mg8 .cols{column-count:2;column-gap:56px;text-align:left;max-width:900px;margin:0 auto;font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:16px;line-height:1.85;color:var(--c2)}
+  .mg8 .cols p{margin:0 0 18px}
+  .mg8 .cols p:first-child::first-letter{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:58px;line-height:.7;float:left;margin:6px 12px 0 0;color:var(--ink)}
+  .mg9{position:relative;min-height:600px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .mg9 .ph,.mg9 .ph img{position:absolute;inset:0;height:100%;width:100%}
+  .mg9 .ph img{object-fit:cover}
+  .mg9::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.66) 100%)}
+  .mg9 .masthead{position:absolute;z-index:2;top:26px;left:52px;right:52px;display:flex;justify-content:space-between;align-items:center;font-family:'Myriad Pro',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.4);padding-top:14px}
+  .mg9 .inner{position:relative;z-index:2;padding:52px}
+  .mg9 .m-title{color:#fff;font-size:clamp(34px,5vw,64px);max-width:14ch;line-height:1.02}
+  .mg9 .standfirst{color:rgba(255,255,255,.9);max-width:520px;margin:18px 0 0;font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.6}
+  .mg10{padding:92px 52px;text-align:center;background:var(--paper)}
+  .mg10 .eyebrow{display:block;margin-bottom:30px}
+  .mg10 .quote{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:clamp(30px,4.4vw,52px);line-height:1.12;color:var(--ink);max-width:20ch;margin:0 auto}
+  .mg10 .support{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.7;color:var(--c2);max-width:600px;margin:32px auto 0}
+  .mg10 .attr{font-family:'Myriad Pro',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--c4);margin-top:26px}
+  @media(max-width:860px){.mg7 .grid{grid-template-columns:1fr;gap:28px}.mg7 .ph{aspect-ratio:16/10}.mg8 .cols{column-count:1}}
 </style>
 </head>
 <body>
 <div class="page">
   <div class="page-head">
     <h1>About Options &middot; section under the hero</h1>
-    <p>Refined per your notes &mdash; six clean options, no grouping. Variants 3 &amp; 5 have the sticky-text / scrolling-detail animation (scroll the section: the heading holds, the details move). Pick one and I&rsquo;ll build it into version&nbsp;two.</p>
+    <p>Refined per your notes &mdash; ten options (the six clean ones + four more editorial/magazine). Variants 3 &amp; 5 have the sticky-text / scrolling-detail animation (scroll the section: the heading holds, the details move). Pick one and I&rsquo;ll build it into version&nbsp;two.</p>
   </div>
 
   <!-- 1 -->
@@ -179,6 +214,57 @@
           <div><span class="k">Gross tonnage</span><span class="v">220 GT</span></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="opt"><div class="opt-tag"><i>7</i><b>Feature spread</b><small>magazine &mdash; image + drop-cap lede + credits</small></div>
+    <div class="card mg7"><div class="grid">
+      <figure><div class="ph"><img src="assets/riva-profile.jpg" alt=""/></div><figcaption>Riva 112&rsquo; Dolcevita Super, underway off the coast.</figcaption></figure>
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 class="m-title">The next evolution of the flybridge superyacht.</h2>
+        <p class="body">The Riva 112&rsquo; Dolcevita Super expands on the 110&rsquo; Dolcevita with sculpted Italian lines and twin MTU 16V 2000 M96L engines, giving her the presence of a true superyacht &mdash; and open-air living across every deck.</p>
+        <div class="rule"></div>
+        <div class="credits">
+          <div><span class="k">Builder</span><span class="v">Riva</span></div>
+          <div><span class="k">Design</span><span class="v">Officina Italiana</span></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 8 -->
+  <div class="opt"><div class="opt-tag"><i>8</i><b>Two-column editorial</b><small>magazine &mdash; headline + body in two columns</small></div>
+    <div class="card mg8">
+      <span class="eyebrow">About</span>
+      <h2 class="m-title">Built to go further</h2>
+      <div class="cols">
+        <p>The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita. Expanded volumes, sculpted Italian lines and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht.</p>
+        <p>On board, generous outdoor spaces, panoramic salons and a five-cabin layout create a yacht built around open-air living and a closer connection to the water. From the sun deck to the redesigned aft areas, every space is shaped for effortless entertaining and extended cruising.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="opt"><div class="opt-tag"><i>9</i><b>Cover story</b><small>magazine cover &mdash; headline over full image</small></div>
+    <div class="card mg9">
+      <div class="ph"><img src="assets/promo.jpg" alt=""/></div>
+      <div class="masthead"><span>Jeff Brown Yachts</span><span>The Model &middot; 01</span></div>
+      <div class="inner">
+        <h2 class="m-title">Built to go further.</h2>
+        <p class="standfirst">The next evolution of the 110&rsquo; Dolcevita &mdash; a true superyacht built around open-air living across every deck.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="opt"><div class="opt-tag"><i>10</i><b>Pull-quote</b><small>magazine &mdash; large quotation + supporting note</small></div>
+    <div class="card mg10">
+      <span class="eyebrow">About</span>
+      <p class="quote">Expanded volumes, sculpted Italian lines, the presence of a true superyacht.</p>
+      <p class="support">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita &mdash; twin MTU 16V engines and open-air living across every deck.</p>
+      <p class="attr">Riva 112&rsquo; Dolcevita Super</p>
     </div>
   </div>
 
