@@ -87,13 +87,13 @@
   .mg7{padding:60px 52px}
   .mg7 .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
   .mg7 figure{margin:0}
-  .mg7 .ph{aspect-ratio:4/5;border-radius:2px}
+  .mg7 .ph{border-radius:2px;overflow:hidden}
+  .mg7 .ph img{position:static;width:100%;height:auto;object-fit:contain}
   .mg7 figcaption{font-family:'Myriad Pro',sans-serif;font-style:italic;font-size:13px;color:var(--c4);margin-top:10px}
   .mg7 .eyebrow{display:block;margin-bottom:16px}
   .mg7 .m-title{font-size:clamp(28px,3.4vw,42px);margin:0 0 22px}
   .mg7 .body{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.75;color:var(--c2);margin:0}
-  .mg7 .body::first-letter{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:66px;line-height:.72;float:left;margin:8px 14px 0 0;color:var(--ink)}
-  .mg7 .rule{height:1px;background:var(--line);margin:26px 0}
+    .mg7 .rule{height:1px;background:var(--line);margin:26px 0}
   .mg7 .credits{display:flex;gap:48px}
   .mg7 .credits .k{font-family:'Myriad Pro',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--c4);display:block;margin-bottom:6px}
   .mg7 .credits .v{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:15px;color:var(--ink)}
@@ -102,8 +102,7 @@
   .mg8 .m-title{font-size:clamp(30px,4vw,50px);max-width:15ch;margin:0 auto 36px;line-height:1.08}
   .mg8 .cols{column-count:2;column-gap:56px;text-align:left;max-width:900px;margin:0 auto;font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:16px;line-height:1.85;color:var(--c2)}
   .mg8 .cols p{margin:0 0 18px}
-  .mg8 .cols p:first-child::first-letter{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:58px;line-height:.7;float:left;margin:6px 12px 0 0;color:var(--ink)}
-  .mg9{position:relative;min-height:600px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+    .mg9{position:relative;min-height:600px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
   .mg9 .ph,.mg9 .ph img{position:absolute;inset:0;height:100%;width:100%}
   .mg9 .ph img{object-fit:cover}
   .mg9::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.66) 100%)}
@@ -116,7 +115,7 @@
   .mg10 .quote{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:clamp(30px,4.4vw,52px);line-height:1.12;color:var(--ink);max-width:20ch;margin:0 auto}
   .mg10 .support{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.7;color:var(--c2);max-width:600px;margin:32px auto 0}
   .mg10 .attr{font-family:'Myriad Pro',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--c4);margin-top:26px}
-  @media(max-width:860px){.mg7 .grid{grid-template-columns:1fr;gap:28px}.mg7 .ph{aspect-ratio:16/10}.mg8 .cols{column-count:1}}
+  @media(max-width:860px){.mg7 .grid{grid-template-columns:1fr;gap:28px}.mg8 .cols{column-count:1}}
 </style>
 </head>
 <body>
