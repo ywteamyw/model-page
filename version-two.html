@@ -218,6 +218,28 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* GALLERY — vertical stacked categories (Exterior / Interior / Deck) */
 .gallery{padding:8px 0 40px}
 .vgal-sec{padding:56px 0 8px}
+/* cinematic landing band (Exterior / Interior) */
+.gband{position:relative;height:54vh;min-height:440px;display:flex;align-items:flex-end;overflow:hidden;margin-bottom:44px}
+.gband>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gband::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,18,.12) 0%,rgba(10,14,18,.12) 42%,rgba(10,14,18,.66) 100%)}
+.gband-inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 40px 54px;color:#fff}
+.gband-eyebrow{display:block;font-family:'Mesmerize',sans-serif;font-weight:300;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:14px}
+.gband-title{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:clamp(24px,3vw,30px);line-height:1.08;color:#fff;margin:0}
+.gband-line{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:18px;line-height:1.6;color:rgba(255,255,255,.9);max-width:560px;margin:16px 0 0}
+.gband--right .gband-inner{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+/* About — editorial split (v2 only) */
+.about--split{padding:110px 0}
+.asplit{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,80px);align-items:center}
+.asplit-text{max-width:520px}
+.asplit-title{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:28px;line-height:38px;color:var(--ink);margin:0}
+.asplit-lead{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:18px;line-height:30px;color:var(--c2);margin:20px 0 0}
+.asplit-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;margin-top:36px;padding-top:30px;border-top:1px solid var(--line)}
+.asplit-stats .am-col{display:flex;flex-direction:column;gap:6px}
+.asplit-stats .am-k{font-family:'Myriad Pro',sans-serif;font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--c4)}
+.asplit-stats .am-v{font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:16px;line-height:24px;color:var(--ink)}
+.asplit-media img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+@media(max-width:860px){.asplit{grid-template-columns:1fr;gap:32px}.asplit-media{order:-1}.asplit-media img{aspect-ratio:16/10}.asplit-text{max-width:none}}
+@media(max-width:760px){.gband{height:58vh;min-height:380px;margin-bottom:28px}.gband-inner{padding:0 22px 32px}.gband-line{font-size:16px}}
 .vgal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
 .vgal-head .vgal-titles{display:flex;flex-direction:column;gap:8px}
 .vgal-head .idx{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:13px;line-height:1;
@@ -555,18 +577,20 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 </nav>
 
 <!-- ABOUT (section under the model) -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <h2 class="about-title reveal">Built to go further</h2>
-    <p class="about-lead reveal d1">The next evolution of the 110&rsquo; Dolcevita &mdash; expanded volumes, sculpted Italian lines and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht, with open-air living across every deck.</p>
-  </div>
-  <div class="about-media reveal d2">
-    <div class="about-band"><img src="assets/riva-aerial.jpg" alt="Riva 112 Dolcevita Super from above" loading="lazy"/></div>
-    <div class="about-meta">
-      <div class="am-col"><span class="am-k">Displacement</span><span class="am-v">130 t</span></div>
-      <div class="am-col"><span class="am-k">Fuel capacity</span><span class="am-v">15,300 L</span></div>
-      <div class="am-col"><span class="am-k">Crew</span><span class="am-v">5</span></div>
-      <div class="am-col"><span class="am-k">Gross tonnage</span><span class="am-v">220 GT</span></div>
+<section class="about about--split" id="about">
+  <div class="wrap">
+    <div class="asplit">
+      <div class="asplit-text">
+        <h2 class="asplit-title reveal">Built to go further</h2>
+        <p class="asplit-lead reveal d1">The next evolution of the 110&rsquo; Dolcevita &mdash; expanded volumes, sculpted Italian lines and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht, with open-air living across every deck.</p>
+        <div class="asplit-stats reveal d2">
+          <div class="am-col"><span class="am-k">Displacement</span><span class="am-v">130 t</span></div>
+          <div class="am-col"><span class="am-k">Fuel capacity</span><span class="am-v">15,300 L</span></div>
+          <div class="am-col"><span class="am-k">Crew</span><span class="am-v">5</span></div>
+          <div class="am-col"><span class="am-k">Gross tonnage</span><span class="am-v">220 GT</span></div>
+        </div>
+      </div>
+      <div class="asplit-media reveal d1"><img src="assets/riva-profile.jpg" alt="Riva 112 Dolcevita Super"/></div>
     </div>
   </div>
 </section>
@@ -585,18 +609,32 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 <!-- GALLERY — three editorial galleries (Exterior / Interior / Deck) -->
 <section class="gallery" id="gallery">
 
-  <!-- Exterior — editorial asymmetric mosaic -->
+  <!-- Exterior — cinematic landing band + editorial mosaic -->
   <div class="vgal-sec" id="exterior" data-gallery="exterior">
+    <div class="gband">
+      <img src="assets/promo.jpg" alt="Riva 112 Dolcevita Super exterior"/>
+      <div class="gband-inner">
+        <span class="gband-eyebrow reveal">01 / Exterior</span>
+        <h2 class="gband-title reveal d1">Sculpted for the open sea</h2>
+        <p class="gband-line reveal d2">Riva&rsquo;s unmistakable profile &mdash; from the plumb bow to the sun-drenched aft deck.</p>
+      </div>
+    </div>
     <div class="wrap">
-      <div class="vgal-head reveal"><div class="vgal-titles"><h2>Exterior</h2></div></div>
       <div class="ed" aria-label="Exterior photos"></div>
     </div>
   </div>
 
-  <!-- Interior — same editorial mosaic -->
+  <!-- Interior — cinematic landing band + editorial mosaic -->
   <div class="vgal-sec" id="interior" data-gallery="interior">
+    <div class="gband gband--right">
+      <img src="assets/interior/int-1.png" alt="Riva 112 Dolcevita Super interior"/>
+      <div class="gband-inner">
+        <span class="gband-eyebrow reveal">02 / Interior</span>
+        <h2 class="gband-title reveal d1">An open invitation to the light</h2>
+        <p class="gband-line reveal d2">Panoramic salons and five cabins, in materials chosen for life on the water.</p>
+      </div>
+    </div>
     <div class="wrap">
-      <div class="vgal-head reveal"><div class="vgal-titles"><h2>Interior</h2></div></div>
       <div class="ed" aria-label="Interior photos"></div>
     </div>
   </div>
