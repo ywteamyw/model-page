@@ -116,13 +116,20 @@
   .mg10 .support{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.7;color:var(--c2);max-width:600px;margin:32px auto 0}
   .mg10 .attr{font-family:'Myriad Pro',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--c4);margin-top:26px}
   @media(max-width:860px){.mg7 .grid{grid-template-columns:1fr;gap:28px}.mg8 .cols{column-count:1}}
+  /* 11 · Title + description opposite (Anna's pick) */
+  .mg11{padding:72px 56px}
+  .mg11 .grid{display:grid;grid-template-columns:1.45fr 1fr;gap:60px;align-items:end}
+  .mg11 .eyebrow{display:block;margin-bottom:20px}
+  .mg11 .m-title{font-size:clamp(32px,4.8vw,58px);line-height:1.04;margin:0}
+  .mg11 .lead{font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:17px;line-height:1.75;color:var(--c2);margin:0;padding-bottom:10px}
+  @media(max-width:860px){.mg11 .grid{grid-template-columns:1fr;gap:22px;align-items:start}}
 </style>
 </head>
 <body>
 <div class="page">
   <div class="page-head">
     <h1>About Options &middot; section under the hero</h1>
-    <p>Refined per your notes &mdash; ten options (the six clean ones + four more editorial/magazine). Variants 3 &amp; 5 have the sticky-text / scrolling-detail animation (scroll the section: the heading holds, the details move). Pick one and I&rsquo;ll build it into version&nbsp;two.</p>
+    <p>Refined per your notes &mdash; eleven options (six clean + four editorial/magazine + Anna&rsquo;s title/description split). Variants 3 &amp; 5 have the sticky-text / scrolling-detail animation (scroll the section: the heading holds, the details move). Pick one and I&rsquo;ll build it into version&nbsp;two.</p>
   </div>
 
   <!-- 1 -->
@@ -265,6 +272,17 @@
       <p class="support">The Riva 112&rsquo; Dolcevita Super is the next evolution of the 110&rsquo; Dolcevita &mdash; twin MTU 16V engines and open-air living across every deck.</p>
       <p class="attr">Riva 112&rsquo; Dolcevita Super</p>
     </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="opt"><div class="opt-tag"><i>11</i><b>Title + description opposite</b><small>Anna&rsquo;s pick &mdash; left headline, description across</small></div>
+    <div class="card mg11"><div class="grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 class="m-title">The next evolution of the flybridge superyacht.</h2>
+      </div>
+      <p class="lead">The Riva 112&rsquo; Dolcevita Super expands on the 110&rsquo; Dolcevita &mdash; sculpted Italian lines and twin MTU 16V 2000 M96L engines give her the presence of a true superyacht, with open-air living across every deck.</p>
+    </div></div>
   </div>
 
 </div>
