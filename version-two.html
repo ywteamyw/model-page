@@ -327,11 +327,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .lb-media .g-svgwrap-lb svg{width:100%;height:auto}
 .lb-cap{position:absolute;left:0;bottom:-42px;color:#fff;font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:16px}
 .lb-count{position:absolute;right:0;bottom:-42px;color:rgba(255,255,255,.66);font-family:'Mesmerize',sans-serif;font-size:15px;letter-spacing:.06em}
-.lb-btn{position:absolute;z-index:5;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+.lb-btn{position:absolute;z-index:5;width:52px;height:52px;border-radius:2px;display:flex;align-items:center;justify-content:center;
   background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(8px);transition:background .25s}
 .lb-btn:hover{background:rgba(255,255,255,.22)}.lb-btn svg{width:24px;height:24px}
-.lb-prev{left:-70px;top:50%;transform:translateY(-50%)}
-.lb-next{right:-70px;top:50%;transform:translateY(-50%)}
+.lb-prev{position:fixed;left:20px;top:50%;transform:translateY(-50%)}
+.lb-next{position:fixed;right:20px;top:50%;transform:translateY(-50%)}
 .lb-close{top:-62px;right:0;width:44px;height:44px}
 .lb-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
@@ -527,7 +527,7 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   .ed .e-a,.ed .e-b,.ed .e-c{grid-column:span 6}
   .deckset{grid-template-columns:1fr;gap:14px}
   .filmstrip .gfig{flex-basis:86%}
-  .lb-prev{left:8px}.lb-next{right:8px}
+  .lb-prev{left:12px}.lb-next{right:12px}
   .lb-close{top:-52px}
   .promo{height:640px}
   .brand{padding:40px 0 72px}
@@ -868,13 +868,13 @@ const zoomIco='<span class="zoomdot" aria-hidden="true"><svg viewBox="0 0 24 24"
 /* ---- Shared lightbox ---- */
 const lb=document.getElementById('lightbox');
 const lbMedia=lb.querySelector('.lb-media'),lbCap=lb.querySelector('.lb-cap'),lbCount=lb.querySelector('.lb-count');
-let lbItems=[],lbIdx=0,lbReturn=null;
+let lbItems=[],lbIdx=0,lbReturn=null,lbShowCap=true;
 function lbRender(){const it=lbItems[lbIdx];
   if(it.img){lbMedia.innerHTML='<img src="'+it.img+'" alt="'+escAttr(it.cap)+'"/>';const im=lbMedia.querySelector('img');im.addEventListener('error',()=>{lbMedia.innerHTML='<div class="g-svgwrap-lb">'+(it.svg||'')+'</div>';});}
   else if(it.svg){lbMedia.innerHTML='<div class="g-svgwrap-lb">'+it.svg+'</div>';}
   else{lbMedia.innerHTML='<img src="'+it.src+'" alt="'+escAttr(it.cap)+'"/>';}
-  lbCap.textContent=it.cap||'';lbCount.textContent=(lbIdx+1)+' / '+lbItems.length;}
-function lbOpen(items,i,ret){lbItems=items;lbIdx=i;lbReturn=ret||null;lbRender();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.lb-next').focus();}
+  lbCap.textContent=lbShowCap?(it.cap||''):'';lbCount.textContent=(lbIdx+1)+' / '+lbItems.length;}
+function lbOpen(items,i,ret,showCap){lbItems=items;lbIdx=i;lbReturn=ret||null;lbShowCap=showCap!==false;lbRender();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.lb-next').focus();}
 function lbClose(){lb.classList.remove('open');document.body.style.overflow='';if(lbReturn)try{lbReturn.focus();}catch(e){}}
 function lbGo(n){lbIdx=(n%lbItems.length+lbItems.length)%lbItems.length;lbRender();}
 lb.querySelector('.lb-next').addEventListener('click',()=>lbGo(lbIdx+1));
@@ -911,8 +911,8 @@ function buildHeroStrip(sec,items,word){
   const thumbs=[].slice.call(host.querySelectorAll('.gv1-thumb'));
   let cur=0;
   function setCur(n){cur=(n%items.length+items.length)%items.length;heroImg.src=items[cur].src;thumbs.forEach((t,i)=>t.classList.toggle('active',i===cur));}
-  host.querySelector('.gv1-hero').addEventListener('click',()=>lbOpen(items,cur,host.querySelector('.gv1-hero')));
-  thumbs.forEach((b,i)=>b.addEventListener('click',()=>lbOpen(items,i,b)));
+  host.querySelector('.gv1-hero').addEventListener('click',()=>lbOpen(items,cur,host.querySelector('.gv1-hero'),false));
+  thumbs.forEach((b,i)=>b.addEventListener('click',()=>lbOpen(items,i,b,false)));
   host.querySelector('.gv1-arrow.prev').addEventListener('click',e=>{e.stopPropagation();setCur(cur-1);});
   host.querySelector('.gv1-arrow.next').addEventListener('click',e=>{e.stopPropagation();setCur(cur+1);});
   setCur(0);
