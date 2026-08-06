@@ -73,7 +73,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero-media{position:absolute;inset:0;z-index:0}
 .hero-media video,.hero-media img{width:100%;height:100%;object-fit:cover;will-change:transform}
 .hero-media::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 32%,rgba(0,0,0,0) 58%,rgba(0,0,0,.7) 100%)}
+  background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.18) 50%,rgba(0,0,0,.86) 100%)}
 .hero-inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
   align-items:center;gap:32px;padding-bottom:40px}
 .hero-title{text-align:center;color:#fff;white-space:nowrap}
@@ -600,7 +600,6 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
     <a href="#deck" data-spy>Deck Layout</a>
     <a href="#specs" data-spy>Specifications</a>
     <a href="#inventory" data-spy>Inventory</a>
-    <a href="#brand" data-spy>Office</a>
   </div>
 </nav>
 
@@ -700,26 +699,6 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
     </div>
     <button class="inv-arrow prev" id="invPrev" aria-label="Previous listings" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 18-6-6 6-6"/></svg></button>
     <button class="inv-arrow next" id="invNext" aria-label="Next listings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m9 6 6 6-6 6"/></svg></button>
-  </div>
-</section>
-
-<!-- CONTACT (last section before footer) -->
-<section class="brand" id="brand">
-  <div class="wrap">
-    <h2 class="brand-title h-xs reveal">Visit us in San Diego</h2>
-    <p class="brand-services reveal">Based on Shelter Island in San Diego, Jeff Brown Yachts is the official Riva dealer for the region &mdash; offering yacht sales and brokerage, full in-house management, berthing, and service, all at the water&rsquo;s edge.</p>
-    <div class="brand-grid">
-      <div class="brand-left">
-        <div class="info-grid reveal d1">
-          <div class="info-cell"><span class="k">Location</span><span class="v t-xl">2330 Shelter Island Drive, Suite 105<br/>San Diego, CA 92106</span></div>
-          <div class="info-cell"><span class="k">Working hours</span><span class="v t-xl">Monday - Friday: 8am - 5pm<br/><span class="sub">Weekends and private viewings by appointment.</span></span></div>
-          <div class="info-cell"><span class="k">Email</span><span class="v t-xl">info@jeffbrownyachts.com</span></div>
-          <div class="info-cell"><span class="k">Phone</span><span class="v t-xl">+1 619-222-9899</span></div>
-        </div>
-        <div class="brand-photo reveal d2"><img src="assets/contact.jpg" alt="Jeff Brown Yachts, San Diego" loading="lazy"/></div>
-      </div>
-      <div id="map" class="reveal d1" aria-label="Map of Jeff Brown Yachts, San Diego"></div>
-    </div>
   </div>
 </section>
 
@@ -1007,6 +986,7 @@ document.getElementById('to-top').addEventListener('click',()=>window.scrollTo({
 
 /* Leaflet map */
 window.addEventListener('load',()=>{try{
+  if(!document.getElementById('map'))return;
   const jby=[32.71000,-117.23350];
   const map=L.map('map',{scrollWheelZoom:false,attributionControl:true}).setView(jby,13);window._map=map;
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
