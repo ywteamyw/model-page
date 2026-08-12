@@ -329,8 +329,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .lb-cap{position:absolute;left:0;bottom:-42px;color:#fff;font-family:'Mesmerize',sans-serif;font-weight:300;text-transform:uppercase;font-size:16px}
 .lb-count{position:absolute;right:0;bottom:-42px;color:rgba(255,255,255,.66);font-family:'Mesmerize',sans-serif;font-size:15px;letter-spacing:.06em}
 .lb-btn{position:absolute;z-index:5;width:52px;height:52px;border-radius:2px;display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(8px);transition:background .25s}
-.lb-btn:hover{background:rgba(255,255,255,.22)}.lb-btn svg{width:24px;height:24px}
+  background:#fff;color:#000;border:0;transition:background .25s}
+.lb-btn:hover{background:rgba(255,255,255,.7)}.lb-btn svg{width:24px;height:24px}
 .lb-prev{position:fixed;left:20px;top:50%;transform:translateY(-50%)}
 .lb-next{position:fixed;right:20px;top:50%;transform:translateY(-50%)}
 .lb-close{top:-62px;right:0;width:44px;height:44px}
@@ -365,7 +365,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .secnav-inner{max-width:var(--maxw);margin:0 auto;padding:0 40px;display:flex;justify-content:center;gap:34px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
 .secnav-inner::-webkit-scrollbar{display:none}
 .secnav a{position:relative;flex:0 0 auto;padding:16px 0;font-family:'Mesmerize',sans-serif;font-weight:300;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--c4);white-space:nowrap;text-decoration:none;transition:color .25s}
-.secnav a::after{content:"";position:absolute;left:0;right:0;bottom:-.5px;height:2px;background:var(--navy);transform:scaleX(0);transition:transform .3s ease}
+.secnav a::after{content:"";position:absolute;left:0;right:0;bottom:-.5px;height:2px;background:var(--ink);transform:scaleX(0);transition:transform .3s ease}
 .secnav a:hover{color:var(--ink)}
 .secnav a.active{color:var(--ink)}
 .secnav a.active::after{transform:scaleX(1)}
@@ -435,7 +435,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .inv-arrow{position:absolute;top:195px;transform:translateY(-50%);right:max(calc((100vw - var(--maxw))/2 + var(--pad)),var(--pad));z-index:5;
   width:48px;height:48px;border-radius:2px;background:var(--c0);color:#fff;display:flex;align-items:center;justify-content:center;transition:.25s;
   box-shadow:0 8px 24px -8px rgba(0,0,0,.4)}
-.inv-arrow:hover{background:#fff;color:var(--ink)}.inv-arrow svg{width:24px;height:24px}
+.inv-arrow:hover{background:rgba(0,0,0,.7)}.inv-arrow svg{width:24px;height:24px}
 .inv-arrow.prev{right:auto;left:max(calc((100vw - var(--maxw))/2 + var(--pad)),var(--pad))}
 .inv-arrow[hidden]{display:none}
 .inv-track-wrap{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;padding-left:max(calc((100vw - var(--maxw))/2 + var(--pad)),var(--pad))}
