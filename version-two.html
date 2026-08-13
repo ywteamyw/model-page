@@ -7,8 +7,6 @@
 <meta name="description" content="Riva 112' Dolcevita Super — the next evolution of the flybridge superyacht. Explore exterior, interior and deck layout, technical specifications and request a private tour with Jeff Brown Yachts, San Diego." />
 
 <link rel="stylesheet" href="assets/fonts.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
 <style>
 :root{
   --ink:#1d1d1b;--c0:#000000;--c2:#575760;--c4:#727279;
@@ -424,8 +422,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .brand-photo{border-radius:2px;overflow:hidden;flex:1 1 auto;min-height:0}
 .brand-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
 .brand-photo:hover img{transform:scale(1.05)}
-#map{width:100%;height:591px;border-radius:2px;overflow:hidden;border:1px solid var(--border);z-index:1}
-.leaflet-container{font-family:inherit}.map-pop b{font-family:'Mesmerize',sans-serif}
 
 /* AVAILABLE INVENTORY */
 .inventory{padding:0 0 96px}
@@ -499,7 +495,6 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 @media(max-width:1100px){
   nav.main{display:none}
   .brand-grid{grid-template-columns:1fr}
-  #map{height:420px}
   .brand-photo{height:auto;aspect-ratio:652/367}
 }
 @media(max-width:960px){
@@ -617,7 +612,7 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 
 <!-- 3D TOUR (placed right after the model intro) -->
 <section class="tour3d" id="tour" aria-label="3D virtual tour">
-  <div class="t-bg" id="tourBg"><img src="assets/tour.jpg" onerror="this.onerror=null;this.src='assets/interior/int-1.png'" alt="Riva 112 Dolcevita Super salon" loading="lazy"/></div>
+  <div class="t-bg" id="tourBg"><img src="assets/interior/int-1.png" alt="Riva 112 Dolcevita Super salon" loading="lazy"/></div>
   <div class="t-inner">
     <span class="t-kick reveal">360&deg; Virtual Tour</span>
     <h2 class="reveal d1">Step aboard the Riva 112&rsquo; Dolcevita Super.</h2>
@@ -738,8 +733,6 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   </div>
 </div>
 
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 /* Deck plan SVGs (defined first so galleries.deck can use them) */
 function deckHull(inner){return '<svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" role="img"><defs><linearGradient id="tk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ede1"/><stop offset="1" stop-color="#dfe4ea"/></linearGradient></defs><path d="M60 150 C 60 60, 180 30, 380 26 L 820 26 C 930 26, 970 90, 975 150 C 970 210, 930 274, 820 274 L 380 274 C 180 270, 60 240, 60 150 Z" fill="url(#tk)" stroke="#9aa7b2" stroke-width="2"/>'+inner+'</svg>';}
@@ -981,17 +974,6 @@ invUpdate();
 
 /* Back to top */
 document.getElementById('to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-/* Leaflet map */
-window.addEventListener('load',()=>{try{
-  if(!document.getElementById('map'))return;
-  const jby=[32.71000,-117.23350];
-  const map=L.map('map',{scrollWheelZoom:false,attributionControl:true}).setView(jby,13);window._map=map;
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
-  const icon=L.divIcon({className:'',html:'<div style="width:22px;height:22px;background:#1d1d1b;border:3px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 6px 14px -4px rgba(0,0,0,.5)"></div>',iconSize:[22,22],iconAnchor:[11,22]});
-  L.marker(jby,{icon}).addTo(map).bindPopup('<div class="map-pop"><b>Jeff Brown Yachts</b><br/>2330 Shelter Island Drive, Suite 105<br/>San Diego, CA 92106</div>');
-  map.on('click',()=>map.scrollWheelZoom.enable());
-}catch(e){console.warn('map failed',e);}});
 
 /* Luxury cascade — photos & cards unveil one after another as they enter view */
 (function(){

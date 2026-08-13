@@ -747,10 +747,10 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)kick();});
 const heroMedia=document.getElementById('heroMedia');const tourBg=document.getElementById('tourBg');
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
-  if(y<900) heroMedia.style.transform='translateY('+(y*0.26)+'px) scale(1.06)';
+  if(y<900) heroMedia.style.transform='translateY('+(y*0.26)+'px)';
   if(tourBg){const tr=tourBg.getBoundingClientRect();
     if(tr.bottom>0&&tr.top<window.innerHeight){const tp=(window.innerHeight-tr.top)/(window.innerHeight+tr.height);
-      tourBg.querySelector('img').style.transform='translateY('+((tp-0.5)*50)+'px) scale(1.1)';}}
+      tourBg.querySelector('img').style.transform='translateY('+((tp-0.5)*50)+'px)';}}
   /* Built to Go Further — gentle parallax on the active variant's photographic imagery
      (skip .bgf-clip images, which run their own reveal transform) */
   document.querySelectorAll('.bgf.is-active [data-parallax]').forEach(img=>{
@@ -759,7 +759,7 @@ window.addEventListener('scroll',()=>{
     if(b.bottom>0&&b.top<window.innerHeight){
       const speed=parseFloat(img.dataset.parallax)||0.05;
       const p=(window.innerHeight-b.top)/(window.innerHeight+b.height);
-      img.style.transform='translateY('+((p-0.5)*b.height*speed)+'px) scale(1.08)';
+      img.style.transform='translateY('+((p-0.5)*b.height*speed)+'px)';
     }
   });
 },{passive:true});
