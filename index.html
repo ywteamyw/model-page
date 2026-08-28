@@ -542,6 +542,15 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   /* the close button sat 52px above the top of the screen, so the viewer could not be closed */
   .lb-close{position:fixed;top:18px;right:18px;left:auto;bottom:auto;z-index:7}
 }
+
+/* standard site footer: uppercase locations list, no street address */
+.foot-locs{display:flex;flex-direction:column;gap:14px;margin:0}
+.foot-locs a{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:16px;line-height:20px;letter-spacing:0;text-transform:uppercase;color:var(--ink,#2f2f39);text-decoration:none;transition:color .2s}
+.foot-locs a:hover{color:#41647b}
+/* back-to-top sits at the top right of the footer, level with the logo */
+footer{position:relative}
+.to-top{position:absolute;top:52px;right:40px;margin-top:0;justify-self:auto;align-self:auto}
+@media (max-width:960px){.to-top{top:44px;right:24px}}
 </style>
 </head>
 <body>
