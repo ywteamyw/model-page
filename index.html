@@ -509,6 +509,21 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   .foot-col p a{font-size:inherit}
 }
 
+
+/* ====== MOBILE POLISH — model page, round 2 (phones only) ====== */
+@media (max-width:600px){
+  /* the model name lines up with everything else on the page instead of centring */
+  .hero-inner{align-items:flex-start;padding-left:24px;padding-right:24px}
+  .hero-title{text-align:left;width:100%}
+  .spec-strip{text-align:left}
+  .spec-cell{align-items:flex-start}
+
+  /* the four figures under the aerial shot sit on one row (3 + 1 orphan before) */
+  .about-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px;padding:26px 16px;justify-content:stretch}
+  .am-col{gap:4px}
+  .am-k{font-size:10px;line-height:13px;letter-spacing:.03em}
+  .am-v{font-size:15px;line-height:20px}
+}
 </style>
 </head>
 <body>
