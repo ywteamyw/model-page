@@ -534,6 +534,12 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
 .foot-locs{display:flex;flex-direction:column;gap:14px;margin:0}
 .foot-locs a{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:16px;line-height:20px;letter-spacing:0;text-transform:uppercase;color:var(--ink,#2f2f39);text-decoration:none;transition:color .2s}
 .foot-locs a:hover{color:#41647b}
+
+/* the viewer counter hangs below the stage, which falls off a phone screen:
+   on phones it sits at the top, level with the close button */
+@media (max-width:600px){
+  .lb-count{position:fixed;top:36px;left:22px;right:auto;bottom:auto;font-size:15px;color:rgba(255,255,255,.8);z-index:6}
+}
 </style>
 </head>
 <body>
