@@ -560,6 +560,9 @@ footer{position:relative}
 .lb-count .lb-of{color:rgba(255,255,255,.5)}
 /* Card chevron removed — whole card is the click target (buggy white/scale on tap) */
 .v-cta{display:none!important}
+/* MOBILE-FIX-KSENIA: kill horizontal scroll on phones */
+@media (max-width:980px){html,body{overflow-x:hidden}}
+@media (max-width:600px){.nav .cta{display:none}}
 </style>
 </head>
 <body>
