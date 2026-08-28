@@ -515,8 +515,12 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   /* the model name lines up with everything else on the page instead of centring */
   .hero-inner{align-items:flex-start;padding-left:24px;padding-right:24px}
   .hero-title{text-align:left;width:100%}
-  .spec-strip{text-align:left}
-  .spec-cell{align-items:flex-start}
+  .spec-strip{text-align:left;row-gap:0}
+  .spec-cell{align-items:flex-start;padding:14px 0}
+  /* "20 people" was wrapping while its neighbour did not, so the two columns
+     drifted out of line: one size step down keeps every value on one line */
+  .spec-cell .lbl{font-size:15px;line-height:22px}
+  .spec-cell .val{font-size:18px;line-height:26px;white-space:nowrap}
 
   /* the four figures under the aerial shot sit on one row (3 + 1 orphan before) */
   .about-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 8px;padding:26px 16px;justify-content:stretch}
