@@ -542,6 +542,9 @@ footer{background:var(--page);padding:40px 40px;color:var(--c2);font-size:14px;b
   .lb-count{position:fixed;top:36px;left:22px;right:auto;bottom:auto;font-size:15px;color:#fff;z-index:6}
   /* the close button sat 52px above the top of the screen, so the viewer could not be closed */
   .lb-close{position:fixed;top:18px;right:18px;left:auto;bottom:auto;z-index:7}
+  /* arrows hug the edges of the screen rather than sitting inside the picture */
+  .lb-prev{position:fixed;left:4px;right:auto;top:50%;transform:translateY(-50%);z-index:6}
+  .lb-next{position:fixed;right:4px;left:auto;top:50%;transform:translateY(-50%);z-index:6}
 }
 
 /* standard site footer: uppercase locations list, no street address */
