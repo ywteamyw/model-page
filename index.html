@@ -553,6 +553,8 @@ footer{position:relative}
 .to-top{position:absolute;top:52px;right:40px;margin-top:0;justify-self:auto;align-self:auto}
 /* the footer keeps a 40px gutter on phones here, so the chevron lines up with the logo */
 @media (max-width:960px){.to-top{top:44px;right:40px}}
+.lb-count b{font-weight:inherit;color:#fff}
+.lb-count .lb-of{color:rgba(255,255,255,.5)}
 </style>
 </head>
 <body>
@@ -894,7 +896,7 @@ function lbRender(){const it=lbItems[lbIdx];
   if(it.img){lbMedia.innerHTML='<img src="'+it.img+'" alt="'+escAttr(it.cap)+'"/>';const im=lbMedia.querySelector('img');im.addEventListener('error',()=>{lbMedia.innerHTML='<div class="g-svgwrap-lb">'+(it.svg||'')+'</div>';});}
   else if(it.svg){lbMedia.innerHTML='<div class="g-svgwrap-lb">'+it.svg+'</div>';}
   else{lbMedia.innerHTML='<img src="'+it.src+'" alt="'+escAttr(it.cap)+'"/>';}
-  lbCap.textContent=it.cap||'';lbCount.textContent=(lbIdx+1)+' / '+lbItems.length;}
+  lbCap.textContent=it.cap||'';lbCount.innerHTML='<b>'+(lbIdx+1)+'</b><span class="lb-of"> / '+lbItems.length+'</span>';}
 function lbOpen(items,i,ret){lbItems=items;lbIdx=i;lbReturn=ret||null;lbRender();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.lb-next').focus();}
 function lbClose(){lb.classList.remove('open');document.body.style.overflow='';if(lbReturn)try{lbReturn.focus();}catch(e){}}
 function lbGo(n){lbIdx=(n%lbItems.length+lbItems.length)%lbItems.length;lbRender();}
